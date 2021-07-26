@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Ravi+Prakash&display=swap');
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 800px;
+    justify-content: space-around;
+}
+
+.file-container {
+    width: 400px; height: 200px;
+    border-radius: 10px;
+    position: relative;
+    margin: 0 auto;
+}
+.overlapped {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0; margin: 0;
+    opacity: 0.1;
+    width: 100%;
+}
+.overlap {
+    display: flex;
+    position: absolute;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    top: 0; left: 0; bottom: 0; right: 0; margin: 0;
+    width: 100%;
+    background: #eee;
+    cursor: pointer;
+}
+
+
+.current-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.current {
+    margin-left: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.current-algorithm {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.algorithms-list {
+    position: absolute;
+}
+
+.algorithm {
+    margin-left: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: blanchedalmond;
+}
+
+.hidden {
+    display: none;
+}
+
+.hash {
+    margin: 0 auto;
+}
