@@ -4,6 +4,15 @@ import { url } from './app';
 
 precacheAndRoute(self.__WB_MANIFEST);
 
+
+async function updateCache(evt) {
+  console.log('waitUntil');
+  const response = await fetch(evt.request.url);
+  const cache = await caches.open(CACHE_NAME);
+  await cache.put(url, response);
+  console.log(cache);
+}
+
 const CACHE_NAME = 'v1';
 
 const responseCache = new Response(JSON.stringify(cinemaNews));
@@ -11,6 +20,7 @@ const responseCache = new Response(JSON.stringify(cinemaNews));
 self.addEventListener('install', (evt) => {
   console.log('install')
   evt.waitUntil((async () => {
+    console.log('install waitUntil')
     const cache = await caches.open(CACHE_NAME);
     await cache.put(url, responseCache);
     await self.skipWaiting();
@@ -34,10 +44,7 @@ self.addEventListener('fetch', (evt) => {
     const cachedResponse = await cache.match(evt.request);
     return cachedResponse;
   })());
-  
-  evt.waitUntil((async () => {
-    console.log('waitUntil')
-    const response = await fetch(evt.request);
-    return response;
-  }))
+  console.log(evt.request.url)
+  evt.waitUntil(updateCache(evt))
 });
+
