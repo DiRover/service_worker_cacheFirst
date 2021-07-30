@@ -4,15 +4,6 @@ import { url } from './app';
 
 precacheAndRoute(self.__WB_MANIFEST);
 
-
-async function updateCache(evt) {
-  console.log('waitUntil');
-  const response = await fetch(evt.request.url);
-  const cache = await caches.open(CACHE_NAME);
-  await cache.put(url, response);
-  console.log(cache);
-}
-
 const CACHE_NAME = 'v1';
 
 const responseCache = new Response(JSON.stringify(cinemaNews));
@@ -32,6 +23,7 @@ self.addEventListener('activate', (evt) => {
   evt.waitUntil(self.clients.claim());
 });
 
+
 self.addEventListener('fetch', (evt) => {
   console.log('sw fetch')
   const requestUrl = new URL(evt.request.url);
@@ -44,7 +36,13 @@ self.addEventListener('fetch', (evt) => {
     const cachedResponse = await cache.match(evt.request);
     return cachedResponse;
   })());
-  console.log(evt.request.url)
-  evt.waitUntil(updateCache(evt))
+  
+  evt.waitUntil((async () => {
+    console.log('waitUntil');
+    const response = await fetch(evt.request.url);
+    const client = await clients.get(evt.clientId);
+    let json = await response.json();
+    client.postMessage(json);
+  })());
 });
 

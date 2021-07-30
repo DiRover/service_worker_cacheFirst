@@ -9,12 +9,16 @@ if (navigator.serviceWorker) {
   window.addEventListener('load', async () => {
     try {
       await navigator.serviceWorker.register('./service.worker.js');
-      console.log(navigator.serviceWorker.controller);
     } catch (e) {
       console.log(e);
     }
     fetchData(url);
   });
+
+  navigator.serviceWorker.addEventListener('message', event => {
+    console.log(event.data);
+  });
+
 }
 
 
