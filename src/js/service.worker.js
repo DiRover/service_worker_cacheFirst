@@ -24,6 +24,8 @@ self.addEventListener('activate', (evt) => {
 });
 
 
+
+
 self.addEventListener('fetch', (evt) => {
   console.log('sw fetch')
   const requestUrl = new URL(evt.request.url);

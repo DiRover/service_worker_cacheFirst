@@ -1,9 +1,12 @@
-//console.log('code is working');
+import getPage from './getPage';
 import fetchData from './fetchData';
-
 
 export const url = 'http://localhost:7070/news';
 
+const container = document.querySelector('.container');
+
+
+const page = newgetPage(container);
 
 if (navigator.serviceWorker) {
   window.addEventListener('load', async () => {
@@ -12,11 +15,12 @@ if (navigator.serviceWorker) {
     } catch (e) {
       console.log(e);
     }
-    fetchData(url);
+    const data = fetchData(url);
+    console.log(data);
   });
 
-  navigator.serviceWorker.addEventListener('message', event => {
-    console.log(event.data);
+  navigator.serviceWorker.addEventListener('message', evt => {
+    console.log(evt.data);
   });
 
 }
