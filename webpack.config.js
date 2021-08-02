@@ -11,6 +11,7 @@ const {InjectManifest} = require('workbox-webpack-plugin');
 console.log(__dirname);
 
 module.exports = {
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
   },
@@ -67,7 +68,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    new webpack.HotModuleReplacementPlugin(),
     /*{
         test: /service.worker\.js$/,
         use: [

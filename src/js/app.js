@@ -6,7 +6,7 @@ export const url = 'http://localhost:7070/news';
 const container = document.querySelector('.container');
 
 
-const page = newgetPage(container);
+const page = new getPage(container);
 
 if (navigator.serviceWorker) {
   window.addEventListener('load', async () => {
