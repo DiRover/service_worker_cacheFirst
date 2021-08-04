@@ -1,6 +1,6 @@
 import { precacheAndRoute } from 'workbox-precaching/precacheAndRoute';
 import { cinemaNews } from './cinemaNews';
-import { url } from './app';
+import { url } from './constans';
 
 precacheAndRoute(self.__WB_MANIFEST);
 

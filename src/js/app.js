@@ -1,10 +1,7 @@
 import getPage from './getPage';
-import fetchData from './fetchData';
-
-export const url = 'http://localhost:7070/news';
+import { url } from './constans';
 
 const container = document.querySelector('.container');
-
 
 const page = new getPage(container);
 
@@ -15,7 +12,7 @@ if (navigator.serviceWorker) {
     } catch (e) {
       console.log(e);
     }
-    const data = fetchData(url);
+    const data = page.fetchData(url);
     console.log(data);
   });
 
