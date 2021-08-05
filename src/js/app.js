@@ -12,70 +12,11 @@ if (navigator.serviceWorker) {
     } catch (e) {
       console.log(e);
     }
-    const data = page.fetchData(url);
-    console.log(data);
+    page.fetchData(url);
   });
 
   navigator.serviceWorker.addEventListener('message', evt => {
-    console.log(evt.data);
+    page.render(evt.data, null);
   });
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import { fromEvent } from 'rxjs';
-import Store from './Store';
-import ListRender from './ListRender';
-import handler from './handler';
-import { hashAlgorithms } from './hashAlgorithms';
-import workerOnload from './workerOnload';
-
-const algorithm = document.querySelector('.current');
-const hash = document.querySelector('.hash');
-
-const fileElem = document.querySelector('[data-id="file"]');
-const overlap = document.querySelector('[data-id="overlap"]');
-const store = new Store(hashAlgorithms);
-const listRender = new ListRender(store, hash, algorithm);
-listRender.init();
-
-//передаём клик с перекрывающего элемента на нижележащий инпут
-overlap.addEventListener('click', () => {
-    fileElem.dispatchEvent(new MouseEvent('click'));
-});
-
-fileElem.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    workerOnload({file, store})
-});
-
-overlap.addEventListener('dragover', (e) => {
-    e.preventDefault();
-});
-  
-overlap.addEventListener('drop', (e) => {
-  e.preventDefault();
-  console.log(e.dataTransfer.files[0]);
-  const file = e.dataTransfer.files[0];
-  workerOnload({file, store});
-});
-
-fromEvent(algorithm, 'click').subscribe((e) => { // обрабатваем все клики на странице технологией RxJS
-    handler(e.target, store);// отработчик кликов
-});
-*/
