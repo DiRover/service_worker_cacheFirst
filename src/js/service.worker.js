@@ -41,16 +41,16 @@ self.addEventListener('fetch', (evt) => {
   
   evt.waitUntil((async () => {
     console.log('waitUntil');
-    const response = await fetch(evt.request.url);
     const client = await clients.get(evt.clientId);
-    if (response.ok) {
+    try {
+      const response = await fetch(evt.request.url);
       let json = await response.json();
       client.postMessage(json);
-    } else {
+      console.log(response);
+    } catch(e) {
       console.log('error')
       client.postMessage('error');
     }
-    
   })());
 });
 

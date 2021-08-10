@@ -13,6 +13,10 @@ export default class getPage {
     }
 
     render(data, blank) {
+        if (data === 'error') {
+            this.renderError();
+            return;
+        };
         this.container.innerHTML = '';
         const widget = document.createElement('div');
         widget.setAttribute('class', 'widget');
@@ -50,7 +54,8 @@ export default class getPage {
         popUp.setAttribute('class', 'pop-up');
         popUp.innerHTML = `
         <div class = 'pop-up-text>Data is not eveleble</div>
-        `
+        `;
+        this.container.append(popUp);
     }
 
 }

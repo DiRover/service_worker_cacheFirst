@@ -97,6 +97,7 @@ img {
     width: 50%;
     box-sizing: border-box;
     border: 1px solid black;
+    z-index: 9999;
 }
 
 .pop-up-text {
