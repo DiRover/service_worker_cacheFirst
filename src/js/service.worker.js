@@ -46,7 +46,6 @@ self.addEventListener('fetch', (evt) => {
       const response = await fetch(evt.request.url);
       let json = await response.json();
       client.postMessage(json);
-      console.log(response);
     } catch(e) {
       console.log('error')
       client.postMessage('error');

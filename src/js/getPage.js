@@ -53,7 +53,11 @@ export default class getPage {
         const popUp = document.createElement('div');
         popUp.setAttribute('class', 'pop-up');
         popUp.innerHTML = `
-        <div class = 'pop-up-text>Data is not eveleble</div>
+        <div class = 'pop-up-text'>
+        <p>Data is not available</p>
+        <p>check your network connection</p>
+        <p>and refresh the page</p>
+        </div>
         `;
         this.container.append(popUp);
     }
