@@ -68,25 +68,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    /*{
-        test: /service.worker\.js$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      }*/
-    /*new GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-      cleanupOutdatedCaches: true,
-    })*/
-    /*new ServiceWorkerWebpackPlugin({
-      entry: path.join(__dirname, '../src/js/service.worker.js'),
-    }),*/
      new InjectManifest({
        swSrc: './src/js/service.worker.js',
        swDest: 'service.worker.js',
