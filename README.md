@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/6mfa2wlu1ug5udbt?svg=true)](https://ci.appveyor.com/project/DiRover/service-worker-cachefirst)
 
-
+[PAGE Task 12.2 Service worker Loading Styling](https://dirover.github.io/service_worker_cacheFirst/)
 
 ### Loading Styling
 
