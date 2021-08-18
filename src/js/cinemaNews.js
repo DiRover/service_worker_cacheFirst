@@ -15,3 +15,5 @@ export const cinemaNews = [
     genre: 'Genre of film 3'
   }
 ]
+
+//заглушка для первого старта страницы
